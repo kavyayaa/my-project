@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Leave Request Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Student Leave Request System</h1>
+        
+        <div class="main-content">
+            <!-- Leave Request Form -->
+            <div class="form-container">
+                <div class="card">
+                    <h2>Submit Leave Request</h2>
+                    
+                    <form id="leaveRequestForm">
+                        <div class="form-group">
+                            <label for="studentName">Student Name</label>
+                            <input type="text" id="studentName" name="studentName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="studentId">Student ID</label>
+                            <input type="text" id="studentId" name="studentId" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="leaveType">Leave Type</label>
+                            <select id="leaveType" name="leaveType">
+                                <option value="Medical">Medical</option>
+                                <option value="Personal">Personal</option>
+                                <option value="Family">Family</option>
+                                <option value="Academic">Academic</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="startDate">Start Date</label>
+                            <input type="date" id="startDate" name="startDate" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="endDate">End Date</label>
+                            <input type="date" id="endDate" name="endDate" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reason">Reason</label>
+                            <textarea id="reason" name="reason" rows="3" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Leave Requests List -->
+            <div class="requests-container">
+                <div class="card">
+                    <div class="header">
+                        <h2>Leave Requests</h2>
+                        <span id="requestCount">0 requests</span>
+                    </div>
+                    
+                    <!-- Filters -->
+                    <div class="filters">
+                        <div class="filter-group">
+                            <label for="dateFilter">Filter by Date</label>
+                            <input type="date" id="dateFilter" name="dateFilter">
+                        </div>
+                        <div class="filter-group">
+                            <label for="studentFilter">Filter by Student</label>
+                            <input type="text" id="studentFilter" name="studentFilter" placeholder="Name or ID">
+                        </div>
+                    </div>
+                    
+                    <!-- Request Table -->
+                    <div class="table-container">
+                        <table id="requestsTable">
+                            <thead>
+                                <tr>
+                                    <th>Student</th>
+                                    <th>Leave Period</th>
+                                    <th>Type</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="requestsTableBody">
+                                <!-- Table rows will be added here by JavaScript -->
+                            </tbody>
+                        </table>
+                        <div id="noRequestsMessage" class="no-requests">
+                            No leave requests found with the current filters
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
